@@ -1,0 +1,46 @@
+﻿@model SmartManage.Models.Bill
+
+<form method="post" asp-action="DeleteBillPost">
+    <input asp-for="Id" hidden/>
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-black pl-3">Delete Bill</h2>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="FirstName"></label>
+                <input class="form-control" asp-for="FirstName" disabled/>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="LastName"></label>
+                <input class="form-control" asp-for="LastName" disabled/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Discription"></label>
+            <input class="form-control" asp-for="Discription" disabled/>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Amount"></label>
+                <input class="form-control" asp-for="Amount" disabled/>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="DueDate"></label>
+                <input type="date" class="form-control" asp-for="DueDate" placeholder="@Model.DueDate.ToShortDateString().ToString()" disabled/>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-8 offset-2 row">
+                <div class="col">
+                    <input type="submit" class="btn btn-danger w-75" value="Delte Bill" />
+                </div>
+                <div class="col">
+                    <a class="btn btn-info w-75" asp-action="Index">Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

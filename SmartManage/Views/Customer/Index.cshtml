@@ -1,0 +1,56 @@
+﻿@model IEnumerable<SmartManage.Models.Customer>
+
+<div clss="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-dark">Customer List</h2>
+        </div>
+        <div class="col-6 text-md-right">
+            <a class="btn btn-primary" asp-controller="Customer" asp-action="AddCustomer">Add Customer</a>
+        </div>
+    </div>
+    <br />
+    @if (Model.Count() > 0)
+    {
+        <table class="table table-bordered table-striped" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        First Name
+                    </th>
+                    <th>
+                        Last Name
+                    </th>
+                    <th>
+                        Phone Number
+                    </th>
+                    <th>
+                        Email Address
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var customer in Model)
+                {
+                <tr>
+                    <td width="18%">@customer.FirstName</td>
+                    <td width="18%">@customer.LastName</td>
+                    <td width="18%">@customer.PhoneNumber</td>
+                    <td width="30%">@customer.Email</td>
+                    <td width="15%">
+                        <a class="btn btn-success" asp-controller="Customer" asp-action="EditCustomerInfo" asp-route-Id="@customer.Id">Edit</a>
+                        <a class="btn btn-danger" asp-controller="Customer" asp-action="DeleteCustomerInfo" asp-route-Id="@customer.Id">Delete</a>
+                    </td>
+                </tr>
+                }
+
+            </tbody>
+
+        </table>
+    } else
+    {
+        <p>No Customer Information created yet.</p>
+    }
+
+</div>
+
